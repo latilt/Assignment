@@ -39,7 +39,7 @@ function removeNode(rIndex) {
 }
 
 
-function addArray(todoString) {
+function addCheck(todoString) {
   var todoIndex = liNode.length;
 
   for(var i = 0; i < liNode.length; i++) {
@@ -57,7 +57,7 @@ function addArray(todoString) {
   return ;
 }
 
-function removeArray(removeNumber) {
+function removeCheck(removeNumber) {
   if(isNaN(removeNumber)) {
     showError("숫자를 입력해주세요.")
     return ;
@@ -77,11 +77,11 @@ function doSomething(actionType, todoORnumber)  {
 
   switch(actionType) {
     case "add":
-      addArray(todoORnumber);
+      addCheck(todoORnumber);
     break;
 
     case "remove":
-      removeArray(parseInt(todoORnumber));
+      removeCheck(parseInt(todoORnumber));
     break;
   }
 }
