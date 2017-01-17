@@ -13,11 +13,16 @@
  *
  * 3. 아래 event 관련 코드를 학습해보고, 어떤 코드를 의미하는지 최대한 자세히 주석으로 설명을 넣어보세요.
  */
-var targetNode = document.querySelector(".basket ol");
-var liNode = targetNode.children;
-var messageNode = document.querySelector(".message");
+const targetNode = document.querySelector(".basket ol");
+const liNode = targetNode.children;
 
 function showError(errorText) {
+  // 함수의 재사용성을 높이기 위해 (계획된 노드가 아니라 다른 특정 노드에도 메시지를 띄워주기 위해)
+  // 그럴 경우 messageNode의 값을 매개변수의 엘리먼트를 쿼리셀렉터로 받아서 재사용성을 높일수 있겠다.
+  // function showError(targetElement, errorText)
+  // var messageNode = document.querySelector(targetElement);
+  var messageNode = document.querySelector(".message");
+
   messageNode.innerHTML = errorText;
   messageNode.style.color= "red";
   setTimeout(function() {

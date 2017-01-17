@@ -9,7 +9,7 @@ var liNode = targetNode.children;
 var textContentArray = [];
 var textLengthArray = [];
 var arrayLength = 0;
-var messageNode = document.querySelector(".message");
+
 
 function setLength() {
   arrayLength = textContentArray.length;
@@ -24,6 +24,8 @@ function makeArray() {
 }
 
 function showError(errorText) {
+  var messageNode = document.querySelector(".message");
+  
   messageNode.innerHTML = errorText;
   messageNode.style.color= "red";
   setTimeout(function() {
