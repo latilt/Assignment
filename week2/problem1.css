@@ -33,6 +33,7 @@ li{
 .basket ol {
   padding : 0 20px 0 25px;
   border : 1px solid black;
+  position: relative;
 }
 
 .message {
@@ -69,4 +70,15 @@ li{
   height: 25px;
   font-size : 0.8em;
   outline : 0;
+}
+
+.delete {
+  width: 20px;
+  position : absolute;
+  right: 20px;
+}
+
+.completeCheck {
+  position : absolute;
+  right: 60px;
 }

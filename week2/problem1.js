@@ -16,11 +16,9 @@
 const targetNode = document.querySelector(".basket ol");
 const liNode = targetNode.children;
 
+
+
 function showError(errorText) {
-  // 함수의 재사용성을 높이기 위해 (계획된 노드가 아니라 다른 특정 노드에도 메시지를 띄워주기 위해)
-  // 그럴 경우 messageNode의 값을 매개변수의 엘리먼트를 쿼리셀렉터로 받아서 재사용성을 높일수 있겠다.
-  // function showError(targetElement, errorText)
-  // var messageNode = document.querySelector(targetElement);
   var messageNode = document.querySelector(".message");
 
   messageNode.innerHTML = errorText;
@@ -33,8 +31,18 @@ function showError(errorText) {
 function addNode(nIndex, nText) {
   var newLi = document.createElement("li");
   var newText = document.createTextNode(nText);
+  var deleteButton = document.createElement('button');
+
+  var comCheckBox = document.createElement("input");
+  comCheckBox.setAttribute("class", "completeCheck");
+  comCheckBox.setAttribute("type", "checkbox");
+  comCheckBox.setAttribute("value", "complete");
 
   newLi.appendChild(newText);
+  deleteButton.innerHTML='X';
+  deleteButton.classList.add('delete');
+  newLi.appendChild(comCheckBox);
+  newLi.appendChild(deleteButton);
 
   targetNode.insertBefore(newLi, liNode[nIndex]);
 }
@@ -103,7 +111,33 @@ function doSomething(actionType, todoORnumber)  {
  * 이 두가지 변수를 doSomething함수에 전달하여 실행시키게 된다.
  */
 
-var controller = document.querySelector(".controller");
+document.addEventListener("click", function(evt) {
+  var btn = evt.target;
+
+  if(btn.className == "add"||btn.className=='remove') {
+  var inputValue = btn.previousElementSibling.value;
+  var actionType = btn.className;
+  doSomething(actionType, inputValue);
+  btn.previousElementSibling.value = "";
+  }
+
+  if(btn.className=='completeCheck') {
+    var li =btn.parentElement;
+    if(btn.checked==true){
+      li.style.textDecoration='line-through';
+    }
+    else {
+      li.style.textDecoration='none';
+    }
+  }
+
+  if(btn.className == "delete") {
+    var deleteEle=btn.parentElement;
+    targetNode.removeChild(deleteEle);
+  }
+});
+
+/*var controller = document.querySelector(".controller");
 
 controller.addEventListener("click", function(evt) {
   var btn = evt.target;
@@ -113,3 +147,23 @@ controller.addEventListener("click", function(evt) {
   doSomething(actionType, inputValue);
   btn.previousElementSibling.value = "";
 });
+
+var deleteController = document.querySelector(".basket ol");
+
+deleteController.addEventListener("click", function(deleteEvt) {
+  var deleteBtn = deleteEvt.target;
+  if(deleteBtn.className=='completeCheck'){
+    var li =deleteBtn.parentElement;
+    if(deleteBtn.checked==true){
+
+      li.style.textDecoration='line-through';
+    }
+    else{
+      li.style.textDecoration='none';
+    }
+  }
+  if(deleteBtn.className !== "delete") return;
+  var deleteEle=deleteBtn.parentElement;
+  targetNode.removeChild(deleteEle);
+});
+*/
