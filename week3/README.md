@@ -59,5 +59,3 @@ evt.addEventListener("click", function(evnt) {
 }, false);
 ```
 div4의 이벤트가 먼저 실행되고 dvi1의 이벤트가 실행된다.
-
-## 왜그럴까?
