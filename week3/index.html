@@ -43,12 +43,13 @@
 
   evt1.addEventListener("click", function(ev) {
     alert("center");
-  }, false);
+    ev.stopPropagation();
+  });
 
   var evt = document.querySelector("#div1");
 
   evt.addEventListener("click", function(evnt) {
     alert(evnt.target.id);
-  }, false);
+  });
   </script>
 </body>

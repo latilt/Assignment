@@ -44,6 +44,7 @@ evt.addEventListener("click", function(evnt) {
 }, true);
 ```
 div1의 이벤트가 먼저 실행되고 div4의 이벤트가 실행된다.
+capturing
 ###### 3. false를 넣었을 때
 ```js
 var evt1 = document.querySelector("#div4");
@@ -59,3 +60,5 @@ evt.addEventListener("click", function(evnt) {
 }, false);
 ```
 div4의 이벤트가 먼저 실행되고 dvi1의 이벤트가 실행된다.
+bubbling
+디폴트값이다.

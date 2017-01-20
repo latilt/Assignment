@@ -1,0 +1,89 @@
+* {
+  box-sizing : border-box;
+}
+
+header {
+  text-align : center;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style : none;
+}
+
+.userId {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.userMessage {
+  color: gray;
+  margin-top: 5px;
+}
+
+.userSNSInfo {
+  margin-top: 5px;
+  color: gray;
+
+}
+
+.userSNSInfo li {
+  display: inline-block;
+  margin: 0 6px;
+}
+
+.count {
+  color: darkseagreen;
+}
+
+nav {
+  overflow: hidden;
+  margin-top: 60px;
+
+}
+
+.tab {
+  width: 25%;
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  text-align: center;
+  border-top: 1px;
+  border-bottom: 1px;
+  border-left: 1px;
+  border-right: 0;
+  border-color: gray;
+  border-style: solid;
+}
+
+nav div:last-child {
+  border-right: 1px solid gray;
+}
+
+.selectedTab {
+  background-color: coral;
+  color: white;
+}
+
+section {
+  display: none;
+}
+
+section li {
+  padding: 5em;
+}
+
+.myName {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.myDesc {
+
+}
+
+.eleDisplayShow {
+  display: block;
+}
