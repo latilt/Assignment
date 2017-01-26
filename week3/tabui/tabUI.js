@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 var tabUi = {
   URL_LIST : {"position" : "http://jsonplaceholder.typicode.com/posts/1",
-              "friend" : "http://jsonplaceholder.typicode.com/posts/2",
-              "theme" : "http://jsonplaceholder.typicode.com/posts/3",
-              "news" : "http://jsonplaceholder.typicode.com/posts/4"},
+              "friend"   : "http://jsonplaceholder.typicode.com/posts/2",
+              "theme"    : "http://jsonplaceholder.typicode.com/posts/3",
+              "news"     : "http://jsonplaceholder.typicode.com/posts/4"},
 
-  SWAP_LIST : {"nav" : "selectedTab",
+  SWAP_LIST : {"nav"     : "selectedTab",
                "section" : "eleDisplayShow"},
 
   clickedNodeCheck : function(nodeObj) {
@@ -46,8 +46,12 @@ var tabUi = {
   ajaxCall : function(res) {
     var resObj = JSON.parse(res.target.responseText);
     var displayNode = document.querySelector(".eleDisplayShow");
+    var template = document.querySelector("#listTemplate").innerHTML;
 
-    displayNode.innerHTML = "<ul><li><div class='myName'>" + resObj.title + "</div><div class='myDesc'>" + resObj.body + "</div></li></ul>";
+    template = template.replace("{{title}}", resObj.title);
+    template = template.replace("{{body}}", resObj.body);
+
+    displayNode.innerHTML = template;
   },
 
   init : function () {
